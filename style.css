@@ -6,7 +6,6 @@
 
 
 body {
-  background: rgb(17,113,90);
   background: linear-gradient(138deg, rgba(17,113,90,1) 0%, rgba(47,151,159,1) 35%, rgba(0,164,255,1) 100%);
   height: 100vh;
   display: flex;
@@ -15,31 +14,43 @@ body {
   font-family: 'Roboto', 'Arial', sans-serif;
 }
 
-.display {
+.calculator-body {
+  background: linear-gradient(119deg, rgba(136,224,255,1) 0%, rgba(12,127,179,1) 100%);
+  filter: drop-shadow(-4px 8px 10px #000000);
+  padding: 40px;
+  border-radius: 40px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border: 2px solid black;
+}
+
+.display {
+  color: rgb(4, 46, 73);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border: 0px;
   margin-bottom: calc(3 * var(--button-gap));
   border-radius: 20px;
   overflow: hidden;
 }
 
 .subdisplay {
-  box-sizing: border-box;
-  font-size: 50px;
-  width: fit-content;
+  box-sizing: content-box;
   text-align: right;
   padding: 10px;
-  width: 100%;
+  height: 1em;
 }
 
 .subdisplay__input {
-  background: white;
+  background: linear-gradient(90deg, rgba(201, 233, 255, 1) 10%, rgba(240, 249, 255,1) 100%);
+  font-size: 80px;
+  font-weight: 400;  
 }
 
 .subdisplay__expression {
-  background: lightskyblue;
+  background: rgb(201, 233, 255);
+  font-size: 50px;
+  font-weight: 300;
 }
 .button-container {
   display: flex;
@@ -58,17 +69,30 @@ body {
 }
 
 .button {
-  font-size: calc(var(--button-height) - 40px);
-  padding: 0px;
-  height: var(--button-height);
-  aspect-ratio: 1;
+  box-sizing: content-box;
+  font-size: 100px;
+  padding: 0.2em;
+  line-height: 1em;
+  width: 1em;
   border-radius: 50%;
   font-family: 'Roboto', 'Arial', sans-serif;
-  border: 2px solid black;
+  font-weight: 300;
+  border: 0px;
 }
 
 .button--big-button {
-  width: calc(2 * var(--button-height) + var(--button-gap)); 
-  height: var(--button-height);
-  border-radius: calc(0.5* var(--button-height));
+  width: calc(2.4em + var(--button-gap)); 
+  height: 1em;
+  border-radius: 0.7em;
+}
+
+.button--numerical {
+  color: rgb(4, 46, 73);
+  background: linear-gradient(135deg, rgb(227, 241, 250) 10%, rgb(182, 219, 243) 100%);
+}
+
+.button--operator {
+  color: rgb(195, 221, 236);
+  background-color: rgb(49, 100, 134);
+  background: linear-gradient(135deg, rgb(55, 107, 143) 10%, rgb(36, 82, 112) 100%); 
 }
