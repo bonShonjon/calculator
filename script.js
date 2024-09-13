@@ -43,7 +43,7 @@ function onClickSpecial(e) {
       updateInputDisplay();
       updateExpressionDisplay();
       inputString = ""
-      numberA = numberAnswer;
+      numberA = numberAnswer.toString();
       numberB = "";
       operator = "";
       break;
@@ -64,7 +64,7 @@ function onClickNumerical(e) {
 
 function onClickOperator(e) {
   //if no number has been inputted, only "-" can be pressed to make number negative
-  if (!inputString.length && e.target.textContent === "-"){
+  if (!inputString.length && e.target.textContent === "-" && numberAnswer === ""){
     inputString += "-";
     updateInputDisplay();
   //remove negative if no number inputted yet
@@ -94,7 +94,7 @@ function onClickOperator(e) {
     inputString = numberAnswer;
     updateInputDisplay();
     inputString = "";
-    numberA = numberAnswer;
+    numberA = numberAnswer.toString();
     numberB = "";
     operator = e.target.textContent;
 
