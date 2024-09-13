@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
   <title>Calculator</title>
 </head>
 <body>
   <div class="calculator-body">
     <div class="display">
-      <div class="subdisplay subdisplay__expression">15 + </div>
-      <div class="subdisplay subdisplay__input">35</div>
+      <div class="subdisplay subdisplay__expression"></div>
+      <div class="subdisplay subdisplay__input"></div>
     </div>
     <div class="button-container">
       <div class="button-container button-container__subgroup">
@@ -31,13 +32,13 @@
         </div>
         <div class="button-row">
           <button class="button button--numerical">0</button>
-          <button class="button button--numerical">·</button>
+          <button class="button button--numerical">.</button>
         </div>
       </div>
       <div class="button-container button-container__subgroup">
         <div class="button-row">
-          <button class="button button--operator">←</button>
-          <button class="button button--operator">C</button>
+          <button class="button button--operator button--special">←</button>
+          <button class="button button--operator button--special">C</button>
         </div>
         <div class="button-row">
           <button class="button button--operator">×</button>
@@ -48,7 +49,7 @@
           <button class="button button--operator">-</button>
         </div>
         <div class="button-row">
-          <button class="button button--big-button button--operator">=</button>
+          <button class="button button--big-button button--operator button--special">=</button>
         </div>
       </div>
     </div>  
