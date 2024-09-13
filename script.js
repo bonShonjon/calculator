@@ -46,7 +46,10 @@ function onClickSpecial(e) {
       numberA = numberAnswer;
       numberB = "";
       operator = "";
-
+      break;
+    case "←":
+      inputString = inputString.slice(0,-1);
+      updateInputDisplay();
   }
 }
 
