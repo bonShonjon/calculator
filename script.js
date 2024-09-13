@@ -69,7 +69,11 @@ function onClickOperator(e) {
     inputString = "";
     updateInputDisplay();
   //fill first number and operator
-  } else if (!numberA) {
+  } else if (!operator) {
+    //populate input string if performing operation after pressing equals
+    if (!inputString.length) {
+      inputString = numberAnswer;
+    }
     numberA = inputString;
     inputString = "";
     operator = e.target.textContent;
