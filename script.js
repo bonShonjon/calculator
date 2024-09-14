@@ -71,6 +71,16 @@ function onClickSpecial(e) {
 
 //logic for numbers
 function onClickNumerical(e) {
+  //clear all values if entered after pressing "="
+  if (numberAnswer.length) {
+    inputString = "";
+    expressionString = "";
+    displayString = "";
+    numberA = "";
+    numberB = "";
+    operator = "";
+    numberAnswer = "";
+  }
   //only allow one decimal point
   if (e.target.textContent === "." && inputString.includes(".")) {
     return
@@ -115,6 +125,7 @@ function onClickOperator(e) {
     operator = e.target.textContent;
     inputString = "";
     expressionString = `${numberAnswer} ${operator}`
+    numberAnswer = "";
     }
   }
 
