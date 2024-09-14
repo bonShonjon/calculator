@@ -8,10 +8,21 @@
 body {
   background: linear-gradient(138deg, rgba(17,113,90,1) 0%, rgba(47,151,159,1) 35%, rgba(0,164,255,1) 100%);
   height: 100vh;
+  margin: 0;
+  padding: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: 'Roboto', 'Arial', sans-serif;
+}
+
+.content-body{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .calculator-body {
@@ -101,4 +112,11 @@ body {
   color: rgb(15, 84, 90);
   background-color: rgb(49, 100, 134);
   background: linear-gradient(135deg, rgb(204, 245, 255) 10%, rgb(91, 233, 255) 60%, rgb(10, 60, 68) 100%); 
+}
+
+.footer {
+  font-size: 22px;
+  padding-bottom: 20px;
+  color: rgb(210, 231, 243);
+  text-align: center;
 }
