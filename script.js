@@ -163,15 +163,15 @@ function resolveEquation() {
 
 function updateInputDisplay() {
   //truncate display if too many digits
-  if (displayString.length > 14){
-    displayString = `...${displayString.slice(-14)}`
+  if (displayString.length > 11){
+    displayString = `...${displayString.slice(-11)}`
   }
   inputDisplay.textContent = displayString;
 }
 
 function updateExpressionDisplay() {
-  if (expressionString.length > 25){
-    expressionString = `...${expressionString.slice(-25)}`
+  if (expressionString.length > 20){
+    expressionString = `...${expressionString.slice(-20)}`
   }  
   expressionDisplay.textContent = expressionString;
 }
