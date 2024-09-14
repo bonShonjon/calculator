@@ -66,7 +66,7 @@ function onClickNumerical(e) {
     return
   }
   inputString += e.target.textContent;
-  displayString = inputString;
+    displayString = inputString;
   updateInputDisplay();
   updateExpressionDisplay();
 }
@@ -123,7 +123,7 @@ function resolveEquation() {
       numberAnswer = +numberA * +numberB; 
       break;
     case "÷":
-      if (numberB = "0") {
+      if (numberB === "0") {
         numberAnswer = "Div zero error"
       } else {
         numberAnswer = +numberA / +numberB
@@ -131,13 +131,24 @@ function resolveEquation() {
       break;
   }
   numberAnswer = numberAnswer.toString();
+  //truncate answer to 9 signigicant figures
+  if (!isNaN(numberAnswer) && numberAnswer.length > 9) {
+    numberAnswer = (+numberAnswer).toPrecision(9).toString();
+  }
 }
 
 function updateInputDisplay() {
+  //truncate display if too many digits
+  if (displayString.length > 14){
+    displayString = `...${displayString.slice(-14)}`
+  }
   inputDisplay.textContent = displayString;
 }
 
 function updateExpressionDisplay() {
+  if (expressionString.length > 25){
+    expressionString = `...${expressionString.slice(-25)}`
+  }  
   expressionDisplay.textContent = expressionString;
 }
 
