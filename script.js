@@ -3,6 +3,7 @@ const inputDisplay = document.querySelector(".subdisplay__input");
 const expressionDisplay = document.querySelector(".subdisplay__expression");
 //define DOM elements for buttons
 const btnList = document.querySelectorAll(".button");
+const btnListOperator = document.querySelectorAll(".button--operator")
 btnList.forEach((btn) => btn.addEventListener("click", onClick));
 
 //define variables
@@ -17,8 +18,12 @@ let numberAnswer = "";
 //logic based on button class
 function onClick(e) {
   if (e.target.className.includes("button--special")) {
+    e.target.classList.add("button--highlight")
+    setTimeout(() => e.target.classList.remove("button--highlight"), 200);
     onClickSpecial(e);
   } else if (e.target.className.includes("button--numerical")) {
+    e.target.classList.add("button--highlight")
+    setTimeout(() => e.target.classList.remove("button--highlight"), 200);
     onClickNumerical(e);
   } else if (e.target.className.includes("button--operator")){
     onClickOperator(e);
@@ -45,8 +50,11 @@ function onClickSpecial(e) {
       numberAnswer = "";
       updateInputDisplay();
       updateExpressionDisplay();
+      //remove highlight from previously selected operator
+      btnListOperator.forEach((btn)=>btn.classList.remove("button--highlight"));
       break;
-    case "=":
+    //pressing "=" resolves equation and updates displays
+      case "=":
       numberB = inputString;
       resolveEquation();
       displayString = numberAnswer;
@@ -54,6 +62,8 @@ function onClickSpecial(e) {
       expressionString = `${numberA} ${operator} ${numberB}`;
       updateExpressionDisplay();
       updateInputDisplay();
+      //remove highlight from previously selected operator
+      btnListOperator.forEach((btn)=>btn.classList.remove("button--highlight"));
       break;
 
   }
@@ -73,6 +83,9 @@ function onClickNumerical(e) {
 
 //logic for operators
 function onClickOperator(e) {
+  //remove highlight from previously selected operator, add highlight to current selection
+  btnListOperator.forEach((btn)=>btn.classList.remove("button--highlight"));
+  e.target.classList.add("button--highlight");
   //only allow negation when input string is empty
   if (!inputString.length) {
     if (e.target.textContent === "-") {
